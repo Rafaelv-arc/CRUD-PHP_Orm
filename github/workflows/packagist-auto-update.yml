@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Notificar Packagist
         run: |
-          curl -X POST "https://packagist.org/api/update-package/?rafaelvpaz=${{ secrets.PACKAGIST_USERNAME }}&api_token=${{ secrets.PACKAGIST_TOKEN }}" \
+          curl -X POST "https://packagist.org/api/update-package/?username=${{ secrets.rafaelvpaz }}&api_token=${{ secrets.PACKAGIST_TOKEN }}" \
           -d '{"repository":"https://github.com/Rafaelv-arc/crudphporm"}' \
           -H "Content-Type: application/json"
