@@ -1,5 +1,5 @@
 {
-    "name": "rafaelvpaz/Crud-php-orm",
+    "name": "rafaelvpaz/crudphporm",
     "description": "Ápenas um base minha de orm + crud usando mysql",
     "type": "library",
     "license": "MIT",
