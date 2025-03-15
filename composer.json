@@ -17,5 +17,8 @@
         "psr-4": {
             "SeuNamespace\\": "project-orm/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5"
     }
 }
