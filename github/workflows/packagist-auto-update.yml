@@ -2,14 +2,18 @@ name: Atualizar Packagist
 
 on:
   release:
-    types: [published]
+    types: [published]  # Aciona o workflow automaticamente quando um release for publicado
+  workflow_dispatch:  # Permite rodar manualmente também
 
 jobs:
   update-packagist:
     runs-on: ubuntu-latest
     steps:
       - name: Notificar Packagist
+        env:
+          PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
+          PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
         run: |
-          curl -X POST "https://packagist.org/api/update-package/?username=${{ secrets.rafaelvpaz }}&api_token=${{ secrets.PACKAGIST_TOKEN }}" \
-          -d '{"repository":"https://github.com/Rafaelv-arc/crudphporm"}' \
-          -H "Content-Type: application/json"
+          curl -XPOST -H "Content-Type: application/json" \
+          -d '{"repository":"https://github.com/seu-usuario/seu-projeto"}' \
+          "https://packagist.org/api/update-package/?username=$PACKAGIST_USERNAME&api_token=$PACKAGIST_TOKEN"
