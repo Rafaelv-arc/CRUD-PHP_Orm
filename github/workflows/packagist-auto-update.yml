@@ -2,8 +2,8 @@ name: Atualizar Packagist
 
 on:
   release:
-    types: [published]  # Aciona o workflow automaticamente quando um release for publicado
-  workflow_dispatch:  # Permite rodar manualmente também
+    types: [published]  # Roda automaticamente quando um release for publicado
+  workflow_dispatch:  # Permite rodar manualmente
 
 jobs:
   update-packagist:
@@ -11,9 +11,8 @@ jobs:
     steps:
       - name: Notificar Packagist
         env:
-          PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
           PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
         run: |
           curl -XPOST -H "Content-Type: application/json" \
-          -d '{"repository":"https://github.com/seu-usuario/seu-projeto"}' \
-          "https://packagist.org/api/update-package/?username=$PACKAGIST_USERNAME&api_token=$PACKAGIST_TOKEN"
+          -d '{"repository":"https://github.com/Rafaelv-arc/crudphporm.git"}' \
+          "https://packagist.org/api/update-package/?api_token=$PACKAGIST_TOKEN"
